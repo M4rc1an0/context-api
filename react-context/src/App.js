@@ -1,17 +1,17 @@
 import React from "react";
+import Login from "./components/login";
 import Profile from "./components/profile";
-import { AuthContext } from "./providers/auth";
+import { useAuth } from "./providers/auth";
 
 function App() {
   // Variavel Desestruturada
-  const { user, setUser } = React.useContext(AuthContext) 
+  const { setUser } = useAuth();
 
-  console.log(user)
   return (
     <div className="App">
-      <h1>Ola mundo !!</h1>
-      <input type="text" onChange={(e) => setUser({name: e.target.value})}/>
       <Profile />
+      <hr/>
+      <Login />
     </div>
   );
 }
